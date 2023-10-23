@@ -3,7 +3,8 @@ function(feature_option name description default)
 
     string(CONCAT desc "${description} (default: ${default})")
 
-    option(${name} "${desc}" "${default}")
+    message(" * ${name}, ${desc}")
+    set(${name} "${default}")
 
     add_feature_info(${name} ${name} "${desc}")
 

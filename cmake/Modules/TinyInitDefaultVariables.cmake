@@ -91,7 +91,7 @@ DESTINATION is encountered")
         set(CMAKE_MAP_IMPORTED_CONFIG_DEBUG Debug "" CACHE STRING ${debug_helpString})
     else()
         set(CMAKE_MAP_IMPORTED_CONFIG_DEBUG Debug RelWithDebInfo Release MinSizeRel ""
-            CACHE STRING ${debug_helpString})
+            STRING ${debug_helpString})
     endif()
 
     mark_as_advanced(
