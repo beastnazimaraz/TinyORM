@@ -657,7 +657,10 @@ QString MySqlSchemaGrammar::typeSmallInteger(const ColumnDefinition &/*unused*/)
 
 QString MySqlSchemaGrammar::typeFloat(const ColumnDefinition &column) const // NOLINT(readability-convert-member-functions-to-static)
 {
-    return typeDouble(column);
+    if (column.total && column.places)
+        return QStringLiteral("float(%1, %2)").arg(*column.total).arg(*column.places);
+
+    return QStringLiteral("float");
 }
 
 QString MySqlSchemaGrammar::typeDouble(const ColumnDefinition &column) const // NOLINT(readability-convert-member-functions-to-static)
